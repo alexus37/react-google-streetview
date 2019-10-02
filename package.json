@@ -1,0 +1,57 @@
+{
+  "name": "react-google-streetview",
+  "version": "0.0.1",
+  "description": "A react component for the google-streetview lib",
+  "main": "dist/react-google-streetview.js",
+  "module": "dist/react-google-streetview.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "start": "webpack-dev-server --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "./node_modules/.bin/eslint --ext .jsx,.js src/**"
+  },
+  "author": "Alexander Lelidis",
+  "license": "Apache License - 2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexus37/react-google-streetview"
+  },
+  "peerDependencies": {
+    "react": ">=16.10.1",
+    "react-dom": ">=16.10.1"
+  },
+  "keywords": [
+    "react",
+    "google",
+    "streetview",
+    "js"
+  ],
+  "dependencies": {
+    "prop-types": "^15.5.10",
+    "react-async-loader": "^0.1.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/plugin-transform-runtime": "^7.6.0",
+    "@babel/preset-env": "^7.1.6",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.4",
+    "eslint": "^6.3.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-loader": "^3.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-test-renderer": "^15.6.2",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.8",
+    "webpack-dev-server": "^3.8.0",
+    "webpack-merge": "^4.2.2"
+  }
+}

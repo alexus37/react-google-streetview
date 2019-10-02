@@ -1,6 +1,6 @@
 # react-google-streetview
 
-A simple [mapillaryJs](https://github.com/mapillary/mapillary-js) react component.
+A simple [Street View](https://developers.google.com/maps/documentation/javascript/streetview) react component.
 
 ## Table of Contents
 
@@ -35,10 +35,10 @@ Find a bug or want to request a new feature?  Please let us know by submitting a
 
 ## Contributing
 
-Esri welcomes contributions from anyone and everyone. Please see our [guidelines for contributing](https://github.com/esri/contributing).
+Contributions are welcome from anyone and everyone.
 
 ## Licensing
-Copyright 2019 Esri
+Copyright 2019
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
