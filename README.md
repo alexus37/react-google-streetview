@@ -1,6 +1,6 @@
 # react-google-streetview
 
-A simple [Street View](https://developers.google.com/maps/documentation/javascript/streetview) react component.
+A simple [Street View](https://developers.google.com/maps/documentation/javascript/streetview) react component. A demo can be found [here](https://alexus37.github.io/react-google-streetview/)
 
 ## Table of Contents
 
