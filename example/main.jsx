@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 
-import GoogleStreetview from '../src';
+import Demo from './demo';
 
 render(
   <div style={{
@@ -9,9 +9,7 @@ render(
     height: '100%',
   }}
   >
-    <GoogleStreetview
-      apiKey="<ADD API key here>"
-    />
+    <Demo />
   </div>,
   document.getElementById('root'),
 );
