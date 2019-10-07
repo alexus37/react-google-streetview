@@ -20,7 +20,7 @@ A simple [Street View](https://developers.google.com/maps/documentation/javascri
 Then, just import to your React component:
 
 ```jsx
-  import { GoogleStreetview } from 'react-google-streetview';
+  import Streetview from 'react-google-streetview';
 ```
 
 ## Examples

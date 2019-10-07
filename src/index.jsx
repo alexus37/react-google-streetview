@@ -29,6 +29,12 @@ class GoogleStreetview extends React.Component {
         this.props.streetViewPanoramaOptions,
       );
 
+      this.streetView.addListener('pano_changed', () => {
+        if (this.props.onPanoChanged) {
+          this.props.onPanoChanged(this.streetView.getPano());
+        }
+      });
+
       this.streetView.addListener('position_changed', () => {
         if (this.props.onPositionChanged) {
           this.props.onPositionChanged(this.streetView.getPosition());
@@ -38,6 +44,18 @@ class GoogleStreetview extends React.Component {
       this.streetView.addListener('pov_changed', () => {
         if (this.props.onPovChanged) {
           this.props.onPovChanged(this.streetView.getPov());
+        }
+      });
+
+      this.streetView.addListener('visible_changed', () => {
+        if (this.props.onVisibleChanged) {
+          this.props.onVisibleChanged(this.streetView.getVisible());
+        }
+      });
+
+      this.streetView.addListener('zoom_changed', () => {
+        if (this.props.onZoomChanged) {
+          this.props.onZoomChanged(this.streetView.getZoom());
         }
       });
     }
@@ -54,6 +72,10 @@ GoogleStreetview.propTypes = {
   streetViewPanoramaOptions: PropTypes.object,
   onPositionChanged: PropTypes.func,
   onPovChanged: PropTypes.func,
+  onZoomChanged: PropTypes.func,
+  onPanoChanged: PropTypes.func,
+  onLinksChanged: PropTypes.func,
+  onVisibleChanged: PropTypes.func,
   googleMaps: PropTypes.object,
 };
 
@@ -66,6 +88,10 @@ GoogleStreetview.defaultProps = {
   googleMaps: {},
   onPositionChanged: () => {},
   onPovChanged: () => {},
+  onZoomChanged: () => {},
+  onPanoChanged: () => {},
+  onLinksChanged: () => {},
+  onVisibleChanged: () => {},
 };
 
 function mapScriptsToProps(props) {
