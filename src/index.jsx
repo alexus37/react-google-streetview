@@ -59,6 +59,9 @@ class GoogleStreetview extends React.Component {
         }
       });
     }
+    if (this.streetView !== null) {
+      this.streetView.setOptions(this.props.streetViewPanoramaOptions);
+    }
   }
 
   render() {
@@ -74,7 +77,6 @@ GoogleStreetview.propTypes = {
   onPovChanged: PropTypes.func,
   onZoomChanged: PropTypes.func,
   onPanoChanged: PropTypes.func,
-  onLinksChanged: PropTypes.func,
   onVisibleChanged: PropTypes.func,
   googleMaps: PropTypes.object,
 };
@@ -90,7 +92,6 @@ GoogleStreetview.defaultProps = {
   onPovChanged: () => {},
   onZoomChanged: () => {},
   onPanoChanged: () => {},
-  onLinksChanged: () => {},
   onVisibleChanged: () => {},
 };
 
