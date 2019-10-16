@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import asyncLoading from 'react-async-loader';
+import isEqual from 'lodash.isequal';
 
 class GoogleStreetview extends React.Component {
   constructor() {
@@ -9,11 +10,11 @@ class GoogleStreetview extends React.Component {
   }
 
   componentDidMount() {
-    this.initialize(this.node);
+    this.initialize(this.node, {});
   }
 
-  componentDidUpdate() {
-    this.initialize(this.node);
+  componentDidUpdate(prevProps) {
+    this.initialize(this.node, prevProps);
   }
 
   componentWillUnmount() {
@@ -22,7 +23,7 @@ class GoogleStreetview extends React.Component {
     }
   }
 
-  initialize(canvas) {
+  initialize(canvas, prevProps) {
     if (this.props.googleMaps && this.streetView == null) {
       this.streetView = new this.props.googleMaps.StreetViewPanorama(
         canvas,
@@ -59,7 +60,8 @@ class GoogleStreetview extends React.Component {
         }
       });
     }
-    if (this.streetView !== null) {
+    if (this.streetView !== null &&
+        !isEqual(this.props.streetViewPanoramaOptions, prevProps.streetViewPanoramaOptions)) {
       this.streetView.setOptions(this.props.streetViewPanoramaOptions);
     }
   }

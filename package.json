@@ -1,6 +1,6 @@
 {
   "name": "react-google-streetview",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A react component for the google-streetview lib",
   "main": "dist/react-google-streetview.js",
   "module": "dist/react-google-streetview.js",
@@ -31,6 +31,7 @@
     "js"
   ],
   "dependencies": {
+    "lodash.isequal": "^4.5.0",
     "prop-types": "^15.5.10",
     "react-async-loader": "^0.1.2"
   },
