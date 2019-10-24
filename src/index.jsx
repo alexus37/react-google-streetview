@@ -10,7 +10,7 @@ class GoogleStreetview extends React.Component {
   }
 
   componentDidMount() {
-    this.initialize(this.node, {});
+    this.initialize(this.node, this.props);
   }
 
   componentDidUpdate(prevProps) {
@@ -61,17 +61,19 @@ class GoogleStreetview extends React.Component {
       });
     }
     if (this.streetView !== null &&
+        this.props.streetViewPanoramaOptions &&
         !isEqual(this.props.streetViewPanoramaOptions, prevProps.streetViewPanoramaOptions)) {
-      const { zoom, pov, position, ...otherOptions } = this.props.streetViewPanoramaOptions;
-      const { zoom: prevZoom, pov: prevPov, position: prevPos, ...prevOtherOptions } =
+      const { zoom, pov, position, ...otherOptions } =
         this.props.streetViewPanoramaOptions;
-      if (!isEqual(zoom, prevProps.streetViewPanoramaOptions.zoom)) {
+      const { zoom: prevZoom, pov: prevPov, position: prevPos, ...prevOtherOptions } =
+        prevProps.streetViewPanoramaOptions;
+      if (!isEqual(zoom, prevZoom)) {
         this.streetView.setZoom(zoom);
       }
-      if (!isEqual(zoom, prevProps.streetViewPanoramaOptions.pov)) {
+      if (!isEqual(pov, prevPov)) {
         this.streetView.setPov(pov);
       }
-      if (!isEqual(zoom, prevProps.streetViewPanoramaOptions.position)) {
+      if (!isEqual(position, prevPos)) {
         this.streetView.setPosition(position);
       }
       if (!isEqual(otherOptions, prevOtherOptions)) {

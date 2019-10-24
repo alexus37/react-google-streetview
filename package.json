@@ -1,6 +1,6 @@
 {
   "name": "react-google-streetview",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A react component for the google-streetview lib",
   "main": "dist/react-google-streetview.js",
   "module": "dist/react-google-streetview.js",
