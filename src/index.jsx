@@ -60,13 +60,26 @@ class GoogleStreetview extends React.Component {
         }
       });
     }
-    if (this.streetView !== null &&
-        this.props.streetViewPanoramaOptions &&
-        !isEqual(this.props.streetViewPanoramaOptions, prevProps.streetViewPanoramaOptions)) {
-      const { zoom, pov, position, ...otherOptions } =
-        this.props.streetViewPanoramaOptions;
-      const { zoom: prevZoom, pov: prevPov, position: prevPos, ...prevOtherOptions } =
-        prevProps.streetViewPanoramaOptions;
+    if (
+      this.streetView !== null &&
+      this.props.streetViewPanoramaOptions &&
+      !isEqual(
+        this.props.streetViewPanoramaOptions,
+        prevProps.streetViewPanoramaOptions,
+      )
+    ) {
+      const {
+        zoom,
+        pov,
+        position,
+        ...otherOptions
+      } = this.props.streetViewPanoramaOptions;
+      const {
+        zoom: prevZoom,
+        pov: prevPov,
+        position: prevPos,
+        ...prevOtherOptions
+      } = prevProps.streetViewPanoramaOptions;
       if (!isEqual(zoom, prevZoom)) {
         this.streetView.setZoom(zoom);
       }
@@ -83,13 +96,13 @@ class GoogleStreetview extends React.Component {
   }
 
   render() {
-    return <div style={{ height: '100%' }} ref={node => this.node = node} />;
+    return <div style={{ height: '100%' }} ref={node => (this.node = node)} />;
   }
 }
 
 GoogleStreetview.propTypes = {
   /* eslint-disable react/no-unused-prop-types */
-  apiKey: PropTypes.string.isRequired,
+  apiKey: PropTypes.string,
   streetViewPanoramaOptions: PropTypes.object,
   onPositionChanged: PropTypes.func,
   onPovChanged: PropTypes.func,
@@ -100,6 +113,7 @@ GoogleStreetview.propTypes = {
 };
 
 GoogleStreetview.defaultProps = {
+  apiKey: null,
   streetViewPanoramaOptions: {
     position: { lat: 46.9171876, lng: 17.8951832 },
     pov: { heading: 0, pitch: 0 },
@@ -113,12 +127,13 @@ GoogleStreetview.defaultProps = {
   onVisibleChanged: () => {},
 };
 
-function mapScriptsToProps(props) {
-  const googleMapsApiKey = props.apiKey;
+function mapScriptsToProps({ apiKey }) {
+  if (!apiKey) return {};
+
   return {
     googleMaps: {
       globalPath: 'google.maps',
-      url: `https://maps.googleapis.com/maps/api/js?key=${googleMapsApiKey}`,
+      url: `https://maps.googleapis.com/maps/api/js?key=${apiKey}`,
       jsonp: true,
     },
   };
