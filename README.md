@@ -14,7 +14,7 @@ A simple [Street View](https://developers.google.com/maps/documentation/javascri
 ## Installing
 
 ```
-  $ npm install --save react-google-streetview
+npm install --save react-google-streetview
 ```
 
 Then, just import to your React component:
